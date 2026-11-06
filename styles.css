@@ -55,3 +55,6 @@ dialog{background:#101a31;border-color:#8d8cff;color:#eef2ff}dialog #close{posit
 @media(max-width:800px){.hero-grid{grid-template-columns:1fr}.robot-scene{max-width:600px;width:100%;margin:auto;height:500px}}
 @media(max-width:520px){.robot-scene{height:440px}.android3d{transform:translateX(-50%) scale(.88);transform-origin:bottom center}.robot-card{padding:9px 10px}.card-a{left:1%;top:16%}.card-b{right:1%;top:24%}.card-c{left:1%;bottom:10%}.robot-caption{font-size:6px}}
 @media(prefers-reduced-motion:reduce){.android3d,.robot-orbit{animation:none}}
+
+.cursor{border-color:#9a91ff99}.cursor.active{border-color:#6deaff;background:#6deaff12}
+.brand b{box-shadow:0 0 22px #786dff33}
