@@ -28,12 +28,12 @@
       if (p.x < 0 || p.x > w) p.vx *= -1;
       if (p.y < 0 || p.y > h) p.vy *= -1;
       ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(200,255,61,.62)"; ctx.fill();
+      ctx.fillStyle = "rgba(132,185,255,.72)"; ctx.fill();
       for (let j = i + 1; j < particles.length; j++) {
         const q = particles[j], d = Math.hypot(p.x - q.x, p.y - q.y);
         if (d < 95) {
           ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
-          ctx.strokeStyle = "rgba(200,255,61," + (1 - d / 95) * .11 + ")";
+          ctx.strokeStyle = "rgba(132,185,255," + (1 - d / 95) * .11 + ")";
           ctx.lineWidth = .6; ctx.stroke();
         }
       }
