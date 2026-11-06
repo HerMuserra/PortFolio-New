@@ -108,5 +108,31 @@
       if (entry.isIntersecting) { entry.target.classList.add("seen"); observer.unobserve(entry.target); }
     }), { threshold: .12 });
     document.querySelectorAll(".section,.hero,.project").forEach(el => observer.observe(el));
+  } else {
+    document.querySelectorAll(".section,.hero,.project").forEach(el => el.classList.add("seen"));
+  }
+
+  // Gentle pointer tilt on desktop cards. Touch users keep the clean static layout.
+  if (!reduced && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    document.querySelectorAll(".projects>.project").forEach(card => {
+      card.addEventListener("pointermove", e => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+        const rotateY = (x - .5) * 5;
+        const rotateX = (.5 - y) * 4;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      });
+      card.addEventListener("pointerleave", () => { card.style.transform = ""; });
+    });
+    const scene = document.querySelector(".robot-scene");
+    const bot = document.querySelector(".android3d");
+    scene?.addEventListener("pointermove", e => {
+      const rect = scene.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - .5;
+      const y = (e.clientY - rect.top) / rect.height - .5;
+      if (bot) bot.style.transform = `translate3d(${x * 9}px,${y * 7 - 4}px,0) rotateY(${x * 7}deg) rotateX(${-y * 5}deg)`;
+    });
+    scene?.addEventListener("pointerleave", () => { if (bot) bot.style.transform = ""; });
   }
 })();
