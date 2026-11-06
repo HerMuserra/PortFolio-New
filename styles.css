@@ -240,3 +240,99 @@ footer{font-size:10px}
   .about-grid>h3{padding-right:20px}
 }
 @media(prefers-reduced-motion:reduce){.about:before{animation:none}.about.seen .about-grid>h3,.about.seen .about-grid>div,.about.seen .skills>div{animation:none}}
+
+
+/* Experience: make the roles feel like milestones, not a plain text list */
+.experience-section{overflow:hidden}
+.experience-heading{display:flex;align-items:end;justify-content:space-between;gap:40px;margin:20px 0 48px}
+.experience-heading h2{max-width:760px;margin:0}
+.experience-heading>p{max-width:330px;margin:0 0 5px;color:#a4b0ca;font-size:14px;line-height:1.85}
+.experience-showcase{position:relative}
+.experience-card{position:relative;isolation:isolate;overflow:hidden;border:1px solid #344361;border-radius:18px;background:linear-gradient(145deg,#171e2d 0%,#121927 58%,#171b2b 100%);padding:30px;transition:transform .45s cubic-bezier(.2,.8,.2,1),border-color .4s,box-shadow .4s}
+.experience-card:before{content:"";position:absolute;z-index:-1;inset:0;background:radial-gradient(circle at 90% 0%,#8f84ff18,transparent 38%);opacity:.8;transition:opacity .4s}
+.experience-card:after{content:"";position:absolute;z-index:-1;top:0;left:-120%;width:70%;height:100%;background:linear-gradient(105deg,transparent,#ffffff0b,transparent);transform:skewX(-18deg);transition:left .9s cubic-bezier(.2,.8,.2,1)}
+.experience-card:hover{transform:translateY(-7px);border-color:#8d83e8;box-shadow:0 24px 55px #05081270,0 0 35px #8d83e81a}
+.experience-card:hover:before{opacity:1}
+.experience-card:hover:after{left:145%}
+.experience-topline{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:18px;border-bottom:1px solid #34415a}
+.experience-topline>small,.experience-topline>span{font:10px var(--mono);letter-spacing:.12em;color:#a9b5d0}
+.experience-status{display:flex;align-items:center;gap:8px;color:#b8b1ff!important}
+.experience-status i{width:7px;height:7px;border-radius:50%;background:#9d91ff;box-shadow:0 0 12px #9d91ff;animation:experiencePulse 2s ease-in-out infinite}
+@keyframes experiencePulse{50%{opacity:.45;box-shadow:0 0 2px #9d91ff}}
+.experience-feature-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:38px 0 30px}
+.experience-kicker{font:10px var(--mono);letter-spacing:.15em;color:#a59aff;margin:0 0 14px}
+.experience-main h3{font-size:clamp(36px,5vw,64px);line-height:1.02;letter-spacing:-.07em;margin:0 0 20px}
+.experience-main h3 em{font-style:normal;color:#a99fff}
+.experience-description{max-width:600px;color:#aab5ca;font-size:14px;line-height:1.9;margin:0}
+.experience-roles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.experience-roles>div{padding:15px 16px;border:1px solid #394663;border-radius:10px;background:#ffffff06}
+.experience-roles span{display:block;font:9px var(--mono);letter-spacing:.1em;color:#9b91df;margin-bottom:8px}
+.experience-roles b{font-size:14px;color:#edf0ff}
+.experience-visual{height:310px;position:relative;display:grid;place-items:center;overflow:hidden;border:1px solid #4a4c7b;border-radius:14px;background:radial-gradient(circle at 50% 50%,#7770bd30,transparent 48%),linear-gradient(145deg,#202844,#151c2e)}
+.experience-orbit{position:absolute;width:220px;height:220px;border:1px solid #a49aff55;border-radius:50%;animation:experienceOrbit 16s linear infinite}
+.experience-orbit:before{content:"";position:absolute;top:22px;left:30px;width:8px;height:8px;border-radius:50%;background:#b6afff;box-shadow:0 0 16px #aaa0ff}
+.experience-orbit.orbit-two{width:280px;height:140px;transform:rotate(-32deg);border-color:#81dfff45;animation-direction:reverse;animation-duration:22s}
+.experience-orbit.orbit-two:before{top:10px;left:65px;background:#8feaff;box-shadow:0 0 16px #8feaff}
+@keyframes experienceOrbit{to{rotate:360deg}}
+.experience-monogram{font-size:clamp(90px,12vw,150px);font-weight:800;letter-spacing:-.12em;color:#eef0ff;text-shadow:0 0 55px #a69cff55;animation:experienceFloat 5s ease-in-out infinite}
+.experience-monogram span{color:#a99fff}
+.experience-visual-label,.experience-coordinate{position:absolute;font:9px var(--mono);letter-spacing:.1em;color:#aeb8d1}
+.experience-visual-label{bottom:18px;left:18px}
+.experience-coordinate{top:18px;right:18px;text-align:right;line-height:1.7;color:#8c98b7}
+@keyframes experienceFloat{50%{transform:translateY(-9px) scale(1.025)}}
+.experience-featured>.experience-footer,.experience-card>.experience-footer{display:flex;flex-wrap:wrap;gap:9px}
+.experience-footer span{padding:8px 10px;border:1px solid #394663;border-radius:4px;font:9px var(--mono);letter-spacing:.08em;color:#9eabc5;background:#ffffff04}
+.experience-secondary{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.experience-secondary .experience-card{min-height:310px;padding:25px}
+.experience-secondary .experience-topline{padding-bottom:15px}
+.experience-secondary .experience-topline>span{font-size:9px;color:#a59aff}
+.experience-number{position:absolute;right:24px;top:58px;font:700 72px var(--sans);letter-spacing:-.1em;color:#ffffff09;transition:color .4s,transform .5s}
+.experience-card:hover .experience-number{color:#9d91ff1b;transform:translateY(-5px)}
+.experience-secondary .experience-kicker{margin-top:30px}
+.experience-secondary h3{position:relative;font-size:clamp(25px,3vw,36px);line-height:1.12;letter-spacing:-.055em;margin:0 0 14px}
+.experience-secondary .experience-description{font-size:13px;max-width:490px;min-height:76px}
+.experience-secondary .experience-footer{margin-top:24px}
+.project-experience{margin-top:75px;padding:25px 0;border-top:1px solid #344361;border-bottom:1px solid #344361}
+.project-experience-heading{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:10px}
+.project-experience-heading small{font:10px var(--mono);letter-spacing:.13em;color:#a59aff}
+.project-experience-heading p{font:9px var(--mono);letter-spacing:.1em;color:#8794b2}
+.project-experience article{display:grid;grid-template-columns:55px 1fr 30px;gap:18px;align-items:center;padding:20px 12px;border-top:1px solid #2b354b;transition:background .3s,padding .3s}
+.project-experience article:hover{background:#ffffff06;padding-left:20px}
+.project-experience article>span{font:11px var(--mono);color:#8d83e8}
+.project-experience article small{font:9px var(--mono);letter-spacing:.1em;color:#8e9bb9}
+.project-experience article h3{font-size:22px;letter-spacing:-.04em;margin:7px 0}
+.project-experience article h3 i{font-style:normal;color:#a99fff;font-size:16px}
+.project-experience article p{font-size:13px;line-height:1.8;color:#a4b0ca;margin:0;max-width:750px}
+.project-experience article>b{font-size:20px;color:#a99fff;transition:transform .3s}
+.project-experience article:hover>b{transform:translate(3px,-3px)}
+.experience-section.seen .experience-featured{animation:experienceEnter .8s .08s both}
+.experience-section.seen .experience-secondary .experience-card:first-child{animation:experienceEnter .75s .2s both}
+.experience-section.seen .experience-secondary .experience-card:last-child{animation:experienceEnter .75s .32s both}
+.experience-section.seen .project-experience{animation:experienceEnter .8s .4s both}
+@keyframes experienceEnter{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:800px){
+ .experience-heading{display:block}.experience-heading>p{margin-top:18px}
+ .experience-feature-grid{grid-template-columns:1fr;gap:25px}
+ .experience-visual{height:240px}
+ .experience-secondary{grid-template-columns:1fr}
+ .experience-secondary .experience-card{min-height:0}
+ .experience-secondary .experience-description{min-height:0}
+}
+@media(max-width:520px){
+ .experience-card{padding:20px;border-radius:13px}
+ .experience-topline{align-items:flex-start;flex-direction:column;gap:9px}
+ .experience-feature-grid{padding:28px 0 22px}
+ .experience-roles{grid-template-columns:1fr}
+ .experience-visual{height:205px}
+ .experience-secondary .experience-card{padding:20px}
+ .project-experience-heading{align-items:flex-start;flex-direction:column;gap:8px}
+ .project-experience article{grid-template-columns:28px 1fr 20px;gap:10px;padding:18px 4px}
+ .project-experience article h3{font-size:19px}
+ .project-experience article h3 i{display:block;font-size:14px;margin-top:3px}
+ .project-experience article p{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){
+ .experience-status i,.experience-orbit,.experience-monogram{animation:none}
+ .experience-section.seen .experience-featured,.experience-section.seen .experience-secondary .experience-card,.experience-section.seen .project-experience{animation:none}
+ .experience-card,.project-experience article{transition:none}
+}
