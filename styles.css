@@ -160,3 +160,83 @@ nav a:hover{padding-left:9px}nav a:hover:after{width:28px}
 .contact h2{animation:contactBreath 7s ease-in-out infinite}
 @keyframes contactBreath{50%{text-shadow:0 0 34px #b8b4ff35}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.section,.hero,.project{opacity:1;transform:none}}
+
+
+/* Readability + About section refinement */
+:root{--body-size:15px}
+.hero>small,.section>small,.about>small,.contact>small,.section small{font-size:11px;letter-spacing:.1em}
+.hero label{font-size:13px;letter-spacing:.13em}
+.hero .intro{font-size:17px;line-height:1.85;max-width:490px;color:#c4cde0}
+.hero .foot{font-size:10px}
+header{font-size:11px}
+header>span{font-size:10px}
+#menu,.link,.cta{font-size:11px}
+nav a{font-size:21px}
+.heading p{font-size:14px;line-height:1.85;max-width:340px}
+.copy>small,.copy label,.copy button{font-size:10px}
+.copy p,.github p{font-size:14px;line-height:1.85}
+.note{font-size:10px;line-height:1.7}
+.about-grid p{font-size:15px;line-height:1.95}
+.skills b{font-size:11px;letter-spacing:.06em}
+.skills p{font-size:14px;line-height:1.85}
+.timeline article>small,.education p small,.awards>small{font-size:10px}
+.timeline p,.education p,.awards p{font-size:14px;line-height:1.9}
+.contact>p{font-size:11px;letter-spacing:.12em}
+.contact>a,.contact>div a{font-size:13px}
+footer{font-size:10px}
+.robot-card small,.robot-caption{font-size:9px}
+.robot-card b,.robot-card i{font-size:11px}
+
+/* The introduction label should read as a real eyebrow, not a disclaimer */
+.hero label{display:inline-block;padding:9px 13px;border:1px solid #9a91ff55;border-radius:4px;background:linear-gradient(100deg,#8d80ff18,transparent);box-shadow:inset 2px 0 #8d80ff}
+
+/* About: layered editorial layout with restrained motion */
+.about{position:relative;isolation:isolate;overflow:hidden}
+.about:before{content:"";position:absolute;z-index:-1;top:8%;right:-110px;width:360px;height:360px;border:1px solid #8d83d52c;border-radius:50%;box-shadow:0 0 0 32px #8d83d50b,0 0 0 64px #8d83d508;animation:aboutOrbit 34s linear infinite}
+.about:after{content:"";position:absolute;z-index:-1;left:0;top:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,#8b7bdf88,transparent);transform-origin:left;animation:aboutRule 2s var(--motion-ease) both}
+@keyframes aboutOrbit{to{rotate:360deg}}
+@keyframes aboutRule{from{transform:scaleX(0);opacity:0}to{transform:scaleX(1);opacity:1}}
+.about>small{display:inline-flex;align-items:center;gap:12px}
+.about>small:before{content:"";display:inline-block;width:28px;height:1px;background:#7767ca}
+.about h2{position:relative;max-width:800px;margin-bottom:55px}
+.about h2:after{content:"";display:block;width:clamp(70px,12vw,150px);height:4px;margin-top:22px;border-radius:4px;background:linear-gradient(90deg,#7162d4,#a9a0f2,transparent);transform-origin:left;animation:aboutRule 1.2s .3s var(--motion-ease) both}
+.about-grid{position:relative;gap:8vw;align-items:start}
+.about-grid>h3{position:relative;padding:26px 28px 28px 0;border-top:1px solid #b6c1d7;font-size:clamp(36px,4.8vw,62px)}
+.about-grid>h3:before{content:"01";position:absolute;right:0;top:27px;font:10px var(--mono);color:#8174cf}
+.about-grid>div{padding:25px 28px;border:1px solid #b8c3d8;border-radius:14px;background:linear-gradient(145deg,#ffffff9c,#ffffff35);box-shadow:0 16px 38px #34466a12;backdrop-filter:blur(8px)}
+.about-grid>div p{position:relative;padding-left:17px}
+.about-grid>div p:before{content:"";position:absolute;left:0;top:.72em;width:5px;height:5px;border-radius:50%;background:#7768cf;box-shadow:0 0 0 4px #7768cf18}
+.skills{position:relative;margin-top:85px;padding-top:25px;gap:16px 18px}
+.skills>small{grid-column:1/-1;margin-bottom:8px}
+.skills>div{position:relative;min-height:125px;padding:22px 22px 20px;border:1px solid #bdc8dd;border-radius:12px;background:linear-gradient(145deg,#ffffffb8,#ffffff55);box-shadow:0 10px 25px #34466a0c;overflow:hidden;transition:transform .35s var(--motion-ease),box-shadow .35s,border-color .35s}
+.skills>div:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(#7668d4,#9ccef0);transform:scaleY(.18);transform-origin:top;transition:transform .4s var(--motion-ease)}
+.skills>div:after{content:"";position:absolute;right:-28px;bottom:-42px;width:100px;height:100px;border:1px solid #7768cf22;border-radius:50%;transition:transform .6s var(--motion-ease)}
+.skills>div:hover{transform:translateY(-5px);border-color:#8e82d4;box-shadow:0 18px 34px #34466a18}
+.skills>div:hover:before{transform:scaleY(1)}
+.skills>div:hover:after{transform:scale(1.5)}
+.skills b{display:block;color:#5549a5}
+.skills p{position:relative;z-index:1;max-width:440px;color:#33415e}
+.about.seen .about-grid>h3{animation:aboutTextIn .75s .12s both}
+.about.seen .about-grid>div{animation:aboutTextIn .75s .28s both}
+.about.seen .skills>div{animation:aboutTextIn .65s both}
+.about.seen .skills>div:nth-of-type(2){animation-delay:.12s}
+.about.seen .skills>div:nth-of-type(3){animation-delay:.22s}
+.about.seen .skills>div:nth-of-type(4){animation-delay:.32s}
+.about.seen .skills>div:nth-of-type(5){animation-delay:.42s}
+@keyframes aboutTextIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:800px){
+  .hero .intro{font-size:16px}
+  .about-grid>div{padding:22px}
+  .skills>div{min-height:0}
+}
+@media(max-width:520px){
+  header>span{display:none}
+  .hero>small,.section>small,.about>small,.contact>small{font-size:10px}
+  .hero label{font-size:11px}
+  .hero .intro{font-size:15px}
+  .heading p,.copy p,.github p,.about-grid p,.skills p,.timeline p,.education p,.awards p{font-size:13px}
+  .skills{grid-template-columns:1fr;gap:12px}
+  .skills>small{grid-column:auto}
+  .about-grid>h3{padding-right:20px}
+}
+@media(prefers-reduced-motion:reduce){.about:before{animation:none}.about.seen .about-grid>h3,.about.seen .about-grid>div,.about.seen .skills>div{animation:none}}
